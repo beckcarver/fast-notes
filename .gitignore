@@ -1,3 +1,6 @@
 .venv
 .env
 *.egg-info
+*__pycache__*
+*.pyc
+src/fast_notes/__pycache__/main.cpython-314.pyc

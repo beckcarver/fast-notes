@@ -9,4 +9,5 @@ setup_logging()
 Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title=settings.app_name)
-app.include_router(notes.router)
+
+app.include_router(notes.router, prefix="/api/v1")
