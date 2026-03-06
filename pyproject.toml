@@ -1,0 +1,23 @@
+[project]
+name = "fast-notes"
+version = "0.1.0"
+description = "Notes app using fast-api"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "fastapi>=0.135.1",
+    "httpx>=0.28.1",
+    "pydantic-settings>=2.13.1",
+    "python-dotenv>=1.2.2",
+    "sqlalchemy>=2.0.48",
+    "uvicorn>=0.41.0",
+]
+
+[dependency-groups]
+dev = [
+    "black>=26.1.0",
+    "pytest>=9.0.2",
+]
+
+[tool.pytest.ini_options]
+pythonpath = "."
