@@ -46,4 +46,4 @@ def delete_note(note_id: int, service: NoteService = Depends(get_notes_service))
     success = service.delete_note(note_id)
     if not success:
         raise HTTPException(status_code=404, detail="Note not found")
-    return {"success": True}
+    return {"detail": f"Note {note_id} deleted successfully"}
