@@ -4,4 +4,4 @@
 __pycache__/
 *.pyc
 .DS_Store
-src/fast_notes/__pycache__/main.cpython-314.pyc
+test.db
