@@ -1,9 +1,30 @@
 services:
-  fast-notes:
-    build: .
+  fast-notes-api:
+    build:
+      context: .          # root with Dockerfile
     container_name: fast-notes-api
-    ports:
-      - "8000:8000"
-    env_file:
-      - .env
     restart: unless-stopped
+    environment:
+      - PYTHONUNBUFFERED=1
+    ports:
+      - "8000:8000"       # <-- this exposes it to host
+    networks:
+      - fastnotes-net
+
+  notes-frontend:
+    image: nginx:alpine
+    container_name: notes-frontend
+    restart: unless-stopped
+    ports:
+      - "80:80"           # expose frontend to LAN
+    volumes:
+      - ./frontend:/usr/share/nginx/html:ro        # static files
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro  # nginx config
+    depends_on:
+      - fast-notes-api
+    networks:
+      - fastnotes-net
+
+networks:
+  fastnotes-net:
+    driver: bridge
