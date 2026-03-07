@@ -1,0 +1,24 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+h1 {
+    text-align: center;
+}
+
+.new-note input, .new-note textarea {
+    display: block;
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.note {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.note button {
+    margin-right: 5px;
+}
