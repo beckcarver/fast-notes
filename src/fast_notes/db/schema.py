@@ -15,5 +15,5 @@ class Note(Base):
     __tablename__ = "notes"
 
     id: Mapped[int] = mapped_column(primary_key=True)
-    title: Mapped[str] = mapped_column(String, index=True)
+    title: Ma bpped[str] = mapped_column(String, index=True)
     content: Mapped[str] = mapped_column(String)
