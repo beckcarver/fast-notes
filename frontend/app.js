@@ -1,4 +1,4 @@
-const API_BASE = "/api/v1/notes";  // ✅ must match FastAPI router prefix
+const API_BASE = "/api/v1/notes";
 
 async function getNotes() {
     const res = await fetch(API_BASE);
@@ -6,17 +6,22 @@ async function getNotes() {
     const ul = document.getElementById("notes");
     ul.innerHTML = "";
     notes.forEach(note => {
-        const li = document.createElement("li");
-        li.className = "note";
-        li.textContent = `${note.id}: ${note.title} - ${note.content}`;
-        
-        const deleteBtn = document.createElement("button");
-        deleteBtn.textContent = "Delete";
-        deleteBtn.onclick = () => deleteNote(note.id);
-        li.appendChild(deleteBtn);
-        
-        ul.appendChild(li);
-    });
+      const li = document.createElement("li");
+      li.className = "note";
+
+      const text = document.createElement("div");
+      text.className = "text";
+      text.textContent = `${note.id}: ${note.title} - ${note.content}`;
+
+      const deleteBtn = document.createElement("button");
+      deleteBtn.textContent = "Delete";
+      deleteBtn.onclick = () => deleteNote(note.id);
+
+      li.appendChild(text);
+      li.appendChild(deleteBtn);
+
+      ul.appendChild(li);
+  });
 }
 
 async function createNote() {
